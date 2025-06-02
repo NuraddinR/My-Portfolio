@@ -107,7 +107,7 @@ export const MainSection = () => {
             <img
               src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif"
               alt="Coding GIF"
-              className="max-w-[350px] md:max-w-[450px] w-full h-auto rounded-lg shadow-lg transition-transform duration-200 ease-out"
+              className="max-w-[350px] md:max-w-[500px] w-full h-auto rounded-lg shadow-lg transition-transform duration-200 ease-out"
               style={{ transformOrigin: "center center", transform }}
               onMouseMove={handleMouseMove}
               onMouseLeave={handleMouseLeave}

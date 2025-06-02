@@ -42,15 +42,17 @@ export const NavbarSection = () => {
                 NR
               </text>
             </svg>
-            <h1 className="text-2xl font-normal text-white">Welcome</h1>
+            <h1 className="text-2xl font-normal bg-gradient-to-r from-blue-200 to-cyan-300 text-transparent bg-clip-text">
+              Welcome
+            </h1>
           </div>
         </Link>
 
         <div className="hidden md:flex gap-8">
-          <Link to="/about" className="text-white hover:text-blue-500">
+          <Link to="/about" className="text-white hover:text-blue-500 duration-300">
             About
           </Link>
-          <Link to="/contact" className="text-white hover:text-blue-500">
+          <Link to="/contact" className="text-white hover:text-blue-500 duration-300">
             Contact Me
           </Link>
         </div>
