@@ -1,13 +1,13 @@
-import { NavbarSection } from "./components"
-import { MainSection } from "./components/main"
+import { NavbarSection } from "./components";
+import { MainSection } from "./components/main";
 
 const HomePage = () => {
   return (
-    <div>
-        <NavbarSection />
-        <MainSection />
+    <div>  
+      <NavbarSection />
+      <MainSection />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
