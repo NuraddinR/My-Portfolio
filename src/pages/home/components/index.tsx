@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import NavbarIcon from "../../../../public/portfolioicon.png"; 
 
 export const NavbarSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,36 +25,35 @@ export const NavbarSection = () => {
   }, [isOpen]);
 
   return (
-    <nav className="shadow-md px-4 py-5 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent">
+    <nav className="shadow-md px-4 py-5 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
         <Link to="/">
           <div className="flex items-center gap-2">
-            <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
-              <circle cx="50" cy="50" r="48" stroke="#2563EB" strokeWidth="4" />
-              <text
-                x="50%"
-                y="54%"
-                textAnchor="middle"
-                fill="white"
-                fontSize="36"
-                fontFamily="Arial"
-                dy=".3em"
-              >
-                NR
-              </text>
-            </svg>
-            <h1 className="text-2xl font-normal bg-gradient-to-r from-blue-200 to-cyan-300 text-transparent bg-clip-text">
+            <img className="w-8 h-8 rounded-sm" src={NavbarIcon} alt="" />
+            <h1 className="text-2xl font-medium bg-gradient-to-r from-blue-200 to-cyan-300 text-transparent bg-clip-text">
               Welcome
             </h1>
           </div>
         </Link>
 
-        <div className="hidden md:flex gap-8">
-          <Link to="/about" className="text-white hover:text-blue-500 duration-300">
+        <div className="hidden md:flex gap-8 text-xl font-medium">
+          <Link
+            to="/about"
+            className="text-white hover:text-blue-500 duration-300"
+          >
             About
           </Link>
-          <Link to="/contact" className="text-white hover:text-blue-500 duration-300">
-            Contact Me
+          <Link
+            to="/work"
+            className="text-white hover:text-blue-500 duration-300"
+          >
+            Work
+          </Link>
+          <Link
+            to="/contact"
+            className="text-white hover:text-blue-500 duration-300"
+          >
+            Contact
           </Link>
         </div>
 
