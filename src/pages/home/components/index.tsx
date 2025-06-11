@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import NavbarIcon from "../../../../public/portfolioicon.png"; 
+import NavbarIcon from "../../../assets/images/portfolioicon.png"; 
 
 export const NavbarSection = () => {
   const [isOpen, setIsOpen] = useState(false);
