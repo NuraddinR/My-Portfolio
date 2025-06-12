@@ -1,13 +1,15 @@
+import AboutSection from "../about";
 import { NavbarSection } from "./components";
 import { MainSection } from "./components/main";
 
-const HomePage = () => {
+const IntroductionSection = () => {
   return (
     <div>  
       <NavbarSection />
       <MainSection />
+      <AboutSection />
     </div>
   );
 };
 
-export default HomePage;
+export default IntroductionSection;

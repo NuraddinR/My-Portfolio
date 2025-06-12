@@ -24,6 +24,34 @@ export const NavbarSection = () => {
     };
   }, [isOpen]);
 
+  const scrollToAbout = () => {
+    const el = document.getElementById("about");
+    if (!el) return;
+
+    const startY = window.scrollY;
+    const targetY = el.getBoundingClientRect().top + startY - 100; // offset
+    const duration = 800; // millisaniyə — yəni animasiya nə qədər davam edəcək
+    let startTime: number | null = null;
+
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    const animateScroll = (time: number) => {
+      if (startTime === null) startTime = time;
+      const timeElapsed = time - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
+
+      window.scrollTo(0, startY + (targetY - startY) * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   return (
     <nav className="shadow-md px-4 py-5 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
@@ -37,24 +65,25 @@ export const NavbarSection = () => {
         </Link>
 
         <div className="hidden md:flex gap-8 text-xl font-medium">
-          <Link
-            to="/about"
+          <a
+            onClick={scrollToAbout}
+            href="#about"
             className="text-white hover:text-blue-500 duration-300"
           >
             About
-          </Link>
-          <Link
-            to="/work"
+          </a>
+          <a
+            href="#work"
             className="text-white hover:text-blue-500 duration-300"
           >
             Work
-          </Link>
-          <Link
-            to="/contact"
+          </a>
+          <a
+            href="#contact"
             className="text-white hover:text-blue-500 duration-300"
           >
             Contact
-          </Link>
+          </a>
         </div>
 
         <button
@@ -76,12 +105,12 @@ export const NavbarSection = () => {
     }`}
           style={{ minWidth: "150px" }}
         >
-          <Link to="/about" className="text-white hover:text-blue-500">
+          <a href="#about" onClick={scrollToAbout} className="text-white hover:text-blue-500">
             About
-          </Link>
-          <Link to="/contact" className="text-white hover:text-blue-500">
+          </a>
+          <a href="#contact" className="text-white hover:text-blue-500">
             Contact Me
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

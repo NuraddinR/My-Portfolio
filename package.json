@@ -12,10 +12,13 @@
   "dependencies": {
     "@react-three/drei": "^10.1.2",
     "@react-three/fiber": "^9.1.2",
+    "framer-motion": "^12.17.0",
+    "lottie-react": "^2.4.1",
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.1",
+    "react-simple-typewriter": "^5.0.1",
     "three": "^0.177.0"
   },
   "devDependencies": {
