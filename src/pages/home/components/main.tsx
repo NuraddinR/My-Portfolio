@@ -99,7 +99,7 @@ export const MainSection = () => {
   return (
     <div className="relative w-full min-h-screen text-white overflow-hidden">
       <StarCanvas />
-      <div className="absolute inset-0 bg-black bg-opacity-10 z-10" />
+      <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 xl:px-0 py-20 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen">
         {/* Sol tərəf */}
@@ -111,10 +111,10 @@ export const MainSection = () => {
               : "opacity-0 translate-y-20"
           }`}
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-[80px] font-extrabold bg-gradient-to-r from-blue-500 to-cyan-400 text-transparent bg-clip-text mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-[80px] font-extrabold bg-gradient-to-r from-blue-200 to-blue-500 text-transparent bg-clip-text mb-6">
             I'm Nuraddin!
           </h1>
-          <p className="text-lg sm:text-xl lg:text-3xl font-extrabold bg-gradient-to-r from-blue-100 to-cyan-400 text-transparent bg-clip-text mb-8">
+          <p className="text-lg sm:text-xl lg:text-3xl font-extrabold bg-gradient-to-r from-blue-100 to-blue-400 text-transparent bg-clip-text mb-8">
             Frontend Developer • Improving • Learning
           </p>
           <div className="flex justify-center lg:justify-start">

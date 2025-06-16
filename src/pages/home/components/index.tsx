@@ -53,12 +53,12 @@ export const NavbarSection = () => {
   };
 
   return (
-    <nav className="shadow-md px-4 py-5 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent backdrop-blur-sm">
+    <nav className="shadow-md px-4 py-7 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
         <Link to="/">
           <div className="flex items-center gap-2">
             <img className="w-8 h-8 rounded-sm" src={NavbarIcon} alt="" />
-            <h1 className="text-2xl font-medium bg-gradient-to-r from-blue-200 to-cyan-300 text-transparent bg-clip-text">
+            <h1 className="text-2xl font-medium bg-gradient-to-r from-blue-200 to-blue-300 text-transparent bg-clip-text">
               Welcome
             </h1>
           </div>
