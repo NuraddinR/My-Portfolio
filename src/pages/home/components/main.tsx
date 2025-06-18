@@ -101,7 +101,7 @@ export const MainSection = () => {
       <StarCanvas />
       <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 xl:px-0 py-20 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen">
+      <div className="relative z-20 container mx-auto px-4 pt-20 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen">
         {/* Sol tərəf */}
         <div
           ref={leftRef}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import NavbarIcon from "../../../assets/images/portfolioicon.png"; 
+import NavbarIcon from "../../../assets/images/portfolioicon.png";
 
 export const NavbarSection = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,13 +24,66 @@ export const NavbarSection = () => {
     };
   }, [isOpen]);
 
+  const scrollToTop = () => {
+    const startY = window.scrollY;
+    const targetY = 0;
+    const duration = 800;
+    let startTime: number | null = null;
+
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    const animateScroll = (time: number) => {
+      if (startTime === null) startTime = time;
+      const timeElapsed = time - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
+
+      window.scrollTo(0, startY + (targetY - startY) * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
   const scrollToAbout = () => {
     const el = document.getElementById("about");
     if (!el) return;
 
     const startY = window.scrollY;
-    const targetY = el.getBoundingClientRect().top + startY - 100; // offset
-    const duration = 800; // millisaniyə — yəni animasiya nə qədər davam edəcək
+    const targetY = el.getBoundingClientRect().top + startY - 100;
+    const duration = 800;
+    let startTime: number | null = null;
+
+    const easeInOutQuad = (t: number) =>
+      t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+
+    const animateScroll = (time: number) => {
+      if (startTime === null) startTime = time;
+      const timeElapsed = time - startTime;
+      const progress = Math.min(timeElapsed / duration, 1);
+      const ease = easeInOutQuad(progress);
+
+      window.scrollTo(0, startY + (targetY - startY) * ease);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animateScroll);
+      }
+    };
+
+    requestAnimationFrame(animateScroll);
+  };
+
+  const scrollToWork = () => {
+    const el = document.getElementById("work");
+    if (!el) return;
+
+    const startY = window.scrollY;
+    const targetY = el.getBoundingClientRect().top + startY - 100;
+    const duration = 800;
     let startTime: number | null = null;
 
     const easeInOutQuad = (t: number) =>
@@ -55,14 +108,14 @@ export const NavbarSection = () => {
   return (
     <nav className="shadow-md px-4 py-7 w-full h-[68px] fixed top-0 left-0 z-50 bg-transparent backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center relative">
-        <Link to="/">
+        <div onClick={scrollToTop}>
           <div className="flex items-center gap-2">
             <img className="w-8 h-8 rounded-sm" src={NavbarIcon} alt="" />
             <h1 className="text-2xl font-medium bg-gradient-to-r from-blue-200 to-blue-300 text-transparent bg-clip-text">
               Welcome
             </h1>
           </div>
-        </Link>
+        </div>
 
         <div className="hidden md:flex gap-8 text-xl font-medium">
           <a
@@ -73,6 +126,7 @@ export const NavbarSection = () => {
             About
           </a>
           <a
+            onClick={scrollToWork}
             href="#work"
             className="text-white hover:text-blue-500 duration-300"
           >
@@ -105,7 +159,11 @@ export const NavbarSection = () => {
     }`}
           style={{ minWidth: "150px" }}
         >
-          <a href="#about" onClick={scrollToAbout} className="text-white hover:text-blue-500">
+          <a
+            href="#about"
+            onClick={scrollToAbout}
+            className="text-white hover:text-blue-500"
+          >
             About
           </a>
           <a href="#contact" className="text-white hover:text-blue-500">

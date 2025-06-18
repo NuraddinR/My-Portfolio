@@ -54,15 +54,12 @@ const RotatingCube = ({ texturePath, position }: CubeProps) => {
 };
 
 const TechCubeGallery = () => {
+  
   return (
     <div className="h-[600px]">
       <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
         <ambientLight intensity={0.8} />
         <directionalLight position={[5, 5, 5]} />
-        {/* İstəsəniz OrbitControls əlavə edə bilərsiniz */}
-        {/* <OrbitControls enableZoom={false} /> */}
-
-        {/* Kubu tək-tək, 3 sətir, 4 sütun olaraq yerləşdiririk */}
         {textures.map((src, index) => {
           const cols = 6;
           const spacing = 4;
