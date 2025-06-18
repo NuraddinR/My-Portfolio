@@ -1,39 +1,61 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import cozystay from "../../assets/images/cozystay.png";
 import tictactoe from "../../assets/images/tictactoe.png";
+import rentacar from "../../assets/images/rentacar.png";
 
 const projects = [
   {
     title: "Modern Hotel",
     description:
-      "A modern and interactive portfolio site built with React, Tailwind, and Framer Motion.",
+      "A sleek and modern hotel booking website with a user-friendly interface and advanced search features.",
     image: cozystay,
-    link: "https://yourportfolio.com",
+    link: "https://cozystay-hotel.vercel.app",
     tech: ["#React", "#Node.ts", "#Vercel"],
   },
   {
     title: "Tic Tac Toe",
     description:
-      "Full-featured online store with shopping cart, authentication, and admin panel.",
+      "An interactive Tic Tac Toe game with a sleek design, smooth animations, responsive layout, and modern user experience.",
     image: tictactoe,
-    link: "https://yourecommerce.com",
+    link: "https://tic-tac-toe-eight-lilac.vercel.app",
     tech: ["#React", "#Tailwind", "#pnpm"],
   },
   {
-    title: "Blog CMS",
+    title: "Rent a Car",
     description:
-      "A content management system with markdown support and live preview.",
-    image: "",
-    link: "https://yourblogcms.com",
-    tech: ["Next.js", "Sanity", "Tailwind"],
+      "A car rental platform with a user-friendly interface, advanced search features, secure payments, real-time availability, and modern design.",
+    image: rentacar,
+    link: "https://rentanuraddin.vercel.app",
+    tech: ["#React", "#TypeScript", "#Tailwind"],
   },
 ];
 
 const WorksSection = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [transforms, setTransforms] = useState<string[]>(
     projects.map(() => "perspective(500px) rotateY(0deg)")
   );
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        console.log("entry", entry.isIntersecting);
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+  
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -74,15 +96,36 @@ const WorksSection = () => {
     <section id="work">
       <div className="relative w-full min-h-screen text-white overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
-
         <div className="relative z-20 container mx-auto px-4 xl:px-0 pb-16 flex flex-col gap-8 min-h-screen">
           <div>
-            <h1 className="text-lg lg:text-xl font-semibold text-center lg:text-left mb-2">
-              WORKS
-            </h1>
-            <h1 className="text-2xl lg:text-6xl font-bold text-center lg:text-left">
-              My Projects
-            </h1>
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h1 className="text-lg lg:text-xl font-semibold text-center lg:text-left mb-2">
+                WORKS
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <h1 className="text-2xl lg:text-6xl font-bold text-center lg:text-left">
+                My Projects
+              </h1>
+            </motion.div>
+
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
             <p className="text-base lg:text-lg mb-20">
               <br className="hidden md:block" />
               Every project showcased here is a result of countless hours of
@@ -94,6 +137,7 @@ const WorksSection = () => {
               proud to present these projects as a reflection of my hard work
               and passion for development.
             </p>
+            </motion.div>
           </div>
 
           {/* Cards */}
@@ -119,7 +163,7 @@ const WorksSection = () => {
                   }}
                   className="bg-white/10 backdrop-blur-sm p-5 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl flex flex-col"
                 >
-                  <div className="w-full aspect-[16/9] overflow-hidden rounded-3xl">
+                  <div className="w-full aspect-[16/9] overflow-hidden rounded-2xl">
                     <img
                       src={project.image}
                       alt={project.title}

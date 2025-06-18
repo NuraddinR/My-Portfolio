@@ -34,7 +34,8 @@ const AboutSection = () => {
         >
           <motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={visible ? { x: 0, opacity: 1 } : {}}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h1 className="text-md lg:text-xl font-normal">INTRODUCTION</h1>
@@ -42,16 +43,18 @@ const AboutSection = () => {
 
           <motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={visible ? { x: 0, opacity: 1 } : {}}
-            transition={{ duration: 1, ease: "easeOut" }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-5xl lg:text-7xl font-bold">Overview</h1>
           </motion.div>
 
           <motion.div
             initial={{ x: -100, opacity: 0 }}
-            animate={visible ? { x: 0, opacity: 1 } : {}}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: "easeOut" }}
           >
             <p className="text-base lg:text-lg mt-4">
               I am a 21-year-old young programming developer. I have already
