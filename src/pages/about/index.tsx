@@ -74,8 +74,6 @@ const AboutSection = () => {
               trends and improve my professionalism in the field of programming.
             </p>
           </motion.div>
-
-          {/* ⭐ Kristallar aşağıda görünəcək */}
           <div className="w-full">
             <TechCubeGallery />
           </div>

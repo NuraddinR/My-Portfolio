@@ -149,14 +149,21 @@ const WorksSection = () => {
             </motion.div>
           </div>
 
-          {/* Cards */}
           <div className="grid gap-8 px-20 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
-              <a
+              <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.6,
+                  delay: index < 3 ? index * 0.5 : 0,
+                  ease: "easeOut",
+                }}
                 className="transition-transform duration-200"
               >
                 <div
@@ -198,7 +205,7 @@ const WorksSection = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>

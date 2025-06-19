@@ -1,4 +1,5 @@
 import AboutSection from "../about";
+import InformationSection from "../information";
 import WorksSection from "../works";
 import { NavbarSection } from "./components";
 import { MainSection } from "./components/main";
@@ -10,6 +11,7 @@ const IntroductionSection = () => {
       <MainSection />
       <AboutSection />
       <WorksSection />
+      <InformationSection />
     </div>
   );
 };
