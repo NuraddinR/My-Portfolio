@@ -70,8 +70,8 @@ export const MainSection = () => {
     if (!el) return;
 
     const startY = window.scrollY;
-    const targetY = el.getBoundingClientRect().top + startY - 100; // offset
-    const duration = 800; // millisaniyə — yəni animasiya nə qədər davam edəcək
+    const targetY = el.getBoundingClientRect().top + startY - 100;
+    const duration = 800;
     let startTime: number | null = null;
 
     const easeInOutQuad = (t: number) =>
@@ -101,7 +101,7 @@ export const MainSection = () => {
       <StarCanvas />
       <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
 
-      <div className="relative z-20 container mx-auto px-4 pt-20 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen">
+      <div className="relative z-20 container mx-auto  pt-20 flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen">
         {/* Sol tərəf */}
         <div
           ref={leftRef}

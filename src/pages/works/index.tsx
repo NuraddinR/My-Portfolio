@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import cozystay from "../../assets/images/cozystay.png";
 import tictactoe from "../../assets/images/tictactoe.png";
 import rentacar from "../../assets/images/rentacar.png";
+import procalculator from "../../assets/images/procalculator.png";
 
 const projects = [
   {
@@ -28,6 +29,14 @@ const projects = [
     image: rentacar,
     link: "https://rentanuraddin.vercel.app",
     tech: ["#React", "#TypeScript", "#Tailwind"],
+  },
+  {
+    title: "Calculator",
+    description:
+      "A professional calculator application with a sleek design, smooth animations, responsive layout, and modern user experience.",
+    image: procalculator,
+    link: "https://procalculator.vercel.app",
+    tech: ["#Html", "#Css", "#JavaScript"],
   },
 ];
 
@@ -126,17 +135,17 @@ const WorksSection = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-            <p className="text-base lg:text-lg mb-20">
-              <br className="hidden md:block" />
-              Every project showcased here is a result of countless hours of
-              dedication, learning, and <br className="hidden md:block" />
-              overcoming challenges. The journey was not always easy — I
-              encountered obstacles, <br className="hidden md:block" /> faced
-              complex problems, and pushed myself beyond limits. But each step
-              brought growth, and <br className="hidden md:block" /> today, I am
-              proud to present these projects as a reflection of my hard work
-              and passion for development.
-            </p>
+              <p className="text-base lg:text-lg mb-20">
+                <br className="hidden md:block" />
+                Every project showcased here is a result of countless hours of
+                dedication, learning, and <br className="hidden md:block" />
+                overcoming challenges. The journey was not always easy — I
+                encountered obstacles, <br className="hidden md:block" /> faced
+                complex problems, and pushed myself beyond limits. But each step
+                brought growth, and <br className="hidden md:block" /> today, I
+                am proud to present these projects as a reflection of my hard
+                work and passion for development.
+              </p>
             </motion.div>
           </div>
 
@@ -181,7 +190,7 @@ const WorksSection = () => {
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="bg-blue-500 text-white px-2 py-1  text-xs rounded-full"
+                          className="bg-gradient-to-r from-blue-200 to-blue-500 text-transparent bg-clip-text px-1 py-1 text-sm"
                         >
                           {tech}
                         </span>
